@@ -6899,7 +6899,7 @@ window.saveFile = window.saveFile || function(fileUrl,content)
 }
 
 githubSaveFileCB = function(a,b) {
-    var debug =1;
+    if (null !== a) alert("Save Failed\n" + a);
 }
 
 githubSaveFile = function(filePath,content) {
