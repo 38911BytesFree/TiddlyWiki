@@ -525,8 +525,15 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="GIT" creator="YourName" modifier="YourName" created="201506011413" modified="201506021429" changecount="2">
-<pre>git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//</pre>
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201506021452" changecount="3">
+<pre>git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
+git rm file //@@color:blue;delete a file@@//
+
+!Stashes
+git stash //@@color:blue;create a stash@@//
+git stash list //@@color:blue;list of current stashes@@//
+git stash apply //@@color:blue;apply changes from most recent stash@@//
+git stash drop stash:{0} //@@color:blue;delete a stash by name@@//</pre>
 </div>
 <div title="MainMenu" creator="YourName" modifier="YourName" created="201506011413" modified="201506021428" changecount="2">
 <pre>[[GettingStarted]]
