@@ -1,8 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-<script type="text/javascript" src="github.js"></script>
 <script id="versionArea" type="text/javascript">
 //<![CDATA[
 var version = {title: "TiddlyWiki", major: 2, minor: 8, revision: 1, date: new Date("June 23, 2013"), extensions: {}};
@@ -6892,26 +6890,48 @@ window.saveFile = window.saveFile || function(fileUrl,content)
 	return r;
 }
 
-githubSaveFileCB = function(a,b) {
-    var debug =1;
-}
 
 githubSaveFile = function(filePath,content) {
-  var github = new Github({
-    username: config.options.txtGitHubUserName,
-    password: config.options.txtGitHubPassword,
-    auth: "basic"
-  });
+  var url = "https://api.github.com/repos/" + config.options.txtGitHubUserName + "/" + config.options.txtGitHubRepo + "/contents/" + config.options.txtGitHubFilePath + "?" + (new Date()).getTime();
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('PUT',url, false);
+  xmlhttp.dataType = 'json';
+  xmlhttp.setRequestHeader('Accept','application/vnd.github.v3+json');
+  xmlhttp.setRequestHeader('Content-Type','application/json;charset=UTF-8');
+  var authorization = 'Basic ' + window.btoa(config.options.txtGitHubUserName + ':' + config.options.txtGitHubPassword);
+  xmlhttp.setRequestHeader('Authorization', authorization);
+  var data = {
+   message: "Saved by tiddlywiki",
+   content: window.btoa(content),
+   branch: "gh-pages",
+   sha: githubTiddlySha };
+  xmlhttp.send(JSON.stringify(data))
+  return (xmlhttp.status == 200) ? true : false;
+}
 
-  var repo = github.getRepo(config.options.txtGitHubUserName, config.options.txtGitHubRepo);
-  repo.write('gh-pages', config.options.txtGitHubFilePath, content, 'Saved by tiddlywiki', githubSaveFileCB);
-  return true;
+var githubTiddlySha = "";
+
+githubLoadFile = function(fileUrl) {
+  var url = "https://api.github.com/repos/" + config.options.txtGitHubUserName + "/" + config.options.txtGitHubRepo + "/contents/" + config.options.txtGitHubFilePath + "?ref=gh-pages&t=" + (new Date()).getTime();
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET',url, false);
+  xmlhttp.dataType = 'json';
+  xmlhttp.setRequestHeader('Accept','application/vnd.github.v3+json');
+  xmlhttp.setRequestHeader('Content-Type','application/json;charset=UTF-8');
+  var authorization = 'Basic ' + window.btoa(config.options.txtGitHubUserName + ':' + config.options.txtGitHubPassword);
+  xmlhttp.setRequestHeader('Authorization', authorization);
+  xmlhttp.send();
+  if(xmlhttp.status != 200) return null;
+  var res = JSON.parse(xmlhttp.responseText);
+  githubTiddlySha = res["sha"];
+  return(window.atob(res["content"]));
 }
 
 // Load a file from filesystem [Preemption]
 window.loadFile = window.loadFile || function(fileUrl)
 {
-    return null;
+    var r = githubLoadFile(fileUrl);
+    if((r == null) || (r == false))
 	var r = mozillaLoadFile(fileUrl);
 	if((r == null) || (r == false))
 		r = ieLoadFile(fileUrl);
