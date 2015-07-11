@@ -544,10 +544,11 @@ git stash pop //@@color:blue;pop a stash off the stack@@//</pre>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201507050105" changecount="4">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201507111128" changecount="5">
 <pre>[[GettingStarted]]
 [[GIT]]
 [[KDB]]
+[[npm]]
 [[Raspberry Pi]]</pre>
 </div>
 <div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201507050111" changecount="3">
@@ -557,6 +558,26 @@ git stash pop //@@color:blue;pop a stash off the stack@@//</pre>
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade</pre>
+</div>
+<div title="npm" creator="38911" modifier="38911" created="201507111129" modified="201507111156" changecount="12">
+<pre>''Javascript package manager''
+
+sudo install npm -g //@@color:blue; install the latest version of npm globally@@//
+npm install lodash {{{--}}}save  //@@color:blue; updates package.json with a new dependency if necessary@@//
+npm uninstall lodash {{{--}}}save
+npm outdated //@@color:blue; report any outdated packages in package.json@@//
+npm update //@@color:blue; update packages in package.json@@//
+
+npm init //@@color:blue; create a package.json that can be published to npm@@//
+
+''Semver - specifying package versions''
+Patch releases: 1.0 or 1.0.x or ~1.0.4
+Minor releases: 1 or 1.x or ^1.0.4
+Major releases: * or x
+
+''Help''
+npm faq
+npm commands</pre>
 </div>
 </div>
 <!--POST-STOREAREA-->
