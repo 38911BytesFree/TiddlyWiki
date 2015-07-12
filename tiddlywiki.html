@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201507081341" changecount="6">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201507121046" changecount="7">
 <pre>git status //@@color:blue; show what has changed@@//
 git add (files to be committed)
 git commit -m change msg
@@ -533,6 +533,12 @@ git push
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
 git rm file //@@color:blue;delete a file@@//
+
+''Syncing a branch''
+git checkout master //@@color:blue; move to master branch@@//
+git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
+git push
+git checkout gh-pages
 
 !Stashes
 git stash //@@color:blue;create a stash@@//
