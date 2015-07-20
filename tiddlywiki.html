@@ -547,15 +547,47 @@ git stash apply //@@color:blue;apply changes from most recent stash@@//
 git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
 git stash pop //@@color:blue;pop a stash off the stack@@//</pre>
 </div>
+<div title="JQuery" creator="38911" modifier="38911" created="201507202103" modified="201507202131" changecount="14">
+<pre>''Run code on load'' {{{ $(document).ready(function() { ... }) }}} or just {{{ $(function() { ... }) }}}
+''Selectors'' element: {{{ $(&quot;p&quot;) }}} id: {{{ $(&quot;#test&quot;) }}} class: {{{ $(&quot;.test&quot;) }}} MoreSelectors
+''CSS'' {{{ $(&quot;body&quot;).css('color','red') }}}
+''DOM'' text &amp; html - get/set content of the selected elements eg:  {{{ $(&quot;body&quot;).text(&quot;new text&quot;) }}}
+
+''Create elements''
+var txt1 = &quot;&lt;p&gt;Text.&lt;/p&gt;&quot;;               //@@color:green; Create element with HTML @@//  
+var txt2 = $(&quot;&lt;button&gt;&quot;).text(&quot;~ClickMe!&quot;);   //@@color:green; Create with jQuery @@//
+var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with DOM @@//
+
+''Add content'' - append, prepend, after, before
+''Remove content'' - remove, empty. Remove can filter based on class, etc
+</pre>
+</div>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201507111128" changecount="5">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201507202101" changecount="6">
 <pre>[[GettingStarted]]
 [[GIT]]
+[[JQuery]]
 [[KDB]]
 [[npm]]
 [[Raspberry Pi]]</pre>
+</div>
+<div title="MoreSelectors" creator="38911" modifier="38911" created="201507202109" modified="201507202110" changecount="2">
+<pre>|! Syntax |! Description |
+|$(&quot;*&quot;)	|Selects all elements |
+|$(this)	|Selects the current HTML element	|
+|$(&quot;p.intro&quot;)	|Selects all &lt;p&gt; elements with class=&quot;intro&quot;	|
+|$(&quot;p:first&quot;)	|Selects the first &lt;p&gt; element	|
+|$(&quot;ul li:first&quot;)	|Selects the first &lt;li&gt; element of the first &lt;ul&gt;|
+|$(&quot;ul li:first-child&quot;)	|Selects the first &lt;li&gt; element of every &lt;ul&gt;	|
+|$(&quot;[href]&quot;)	|Selects all elements with an href attribute	|
+|$(&quot;a[target='_blank']&quot;)	|Selects all &lt;a&gt; elements with a target attribute value equal to &quot;_blank&quot;	|
+|$(&quot;a[target!='_blank']&quot;)	|Selects all &lt;a&gt; elements with a target attribute value NOT equal to &quot;_blank&quot;	|
+|$(&quot;:button&quot;)	|Selects all &lt;button&gt; elements and &lt;input&gt; elements of type=&quot;button&quot;	|
+|$(&quot;tr:even&quot;)	|Selects all even &lt;tr&gt; elements	|
+|$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
+</pre>
 </div>
 <div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201507050111" changecount="3">
 <pre>''Restart wifi'' - sudo /etc/init.d/networking restart
