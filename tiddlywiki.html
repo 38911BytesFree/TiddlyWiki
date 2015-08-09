@@ -589,13 +589,21 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201507050111" changecount="3">
-<pre>''Restart wifi'' - sudo /etc/init.d/networking restart
+<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201508092049" changecount="4">
+<pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
+''Restart wifi'' - sudo /etc/init.d/networking restart
 
 ''Installation upgrade''
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get dist-upgrade</pre>
+sudo apt-get dist-upgrade
+
+''minidlna''
+sudo service minidlna stop
+sudo service minidlna force-reload
+sudo service minidlna start
+
+</pre>
 </div>
 <div title="npm" creator="38911" modifier="38911" created="201507111129" modified="201507111156" changecount="12">
 <pre>''Javascript package manager''
