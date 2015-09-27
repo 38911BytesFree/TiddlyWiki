@@ -608,7 +608,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201509271620" changecount="7">
+<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201509271628" changecount="9">
 <pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
 ''Restart wifi'' - sudo service networking restart
 
@@ -622,7 +622,11 @@ sudo service minidlna stop
 sudo service minidlna force-reload
 sudo service minidlna start
 
-''Add GPG keys - to fix apt-get update error with wheezy-backports''
+''Wheezy-backports''
+Add a .list file here: /etc/apt/sources.list.d/ containing
+deb http://http.debian.net/debian wheezy-backports main
+
+''Add GPG keys'' - to fix apt-get update error with wheezy-backports
 {{{
 gpg --keyserver pgpkeys.mit.edu --recv-key  010908312D230C5F      
 gpg -a --export 010908312D230C5F | sudo apt-key add -
