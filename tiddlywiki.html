@@ -609,7 +609,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201510101025" changecount="10">
+<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201510102210" changecount="14">
 <pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
 ''Restart wifi'' - sudo service networking restart
 
@@ -620,6 +620,16 @@ sudo apt-get dist-upgrade
 
 ''Application install''
 sudo apt-get install git
+
+''pychromecast''
+sudo apt-get install python-dev
+sudo apt-get install python-setuptools
+sudo easy_install pip
+pip install -r requirements.txt
+
+''Start apache''
+sudo service apache2 restart
+/etc/apache2/sites-available/default //@@color:blue; - update default www directory @@//
 
 ''minidlna''
 sudo service minidlna stop
