@@ -576,6 +576,15 @@ To get started with this blank [[TiddlyWiki]], you'll need to modify the followi
 You'll also need to enter your username for signing your edits: &lt;&lt;option txtUserName&gt;&gt;
 </pre>
 </div>
+<div title="Installing Julia" creator="38911" modifier="38911" created="201510261449" modified="201510261449" changecount="2">
+<pre>To install on Ubuntu:
+{{{
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo add-apt-repository ppa:staticfloat/juliareleases
+sudo apt-get update
+sudo apt-get -y install julia
+}}}</pre>
+</div>
 <div title="JQuery" creator="38911" modifier="38911" created="201507202103" modified="201507202131" changecount="14">
 <pre>''Run code on load'' {{{ $(document).ready(function() { ... }) }}} or just {{{ $(function() { ... }) }}}
 ''Selectors'' element: {{{ $(&quot;p&quot;) }}} id: {{{ $(&quot;#test&quot;) }}} class: {{{ $(&quot;.test&quot;) }}} MoreSelectors
@@ -591,14 +600,18 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
+<div title="Julia" creator="38911" modifier="38911" created="201510261448" changecount="1">
+<pre>[[Installing Julia]]</pre>
+</div>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201509190832" changecount="8">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201510261448" changecount="9">
 <pre>[[Atom]]
 [[GettingStarted]]
 [[GIT]]
 [[JQuery]]
+[[Julia]]
 [[KDB]]
 [[macports]]
 [[npm]]
