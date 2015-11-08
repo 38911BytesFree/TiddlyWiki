@@ -542,6 +542,19 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201511080246" changecount="8">
+<pre>docker images - //@@color:blue; list images @@//
+docker ps -a - //@@color:blue; list all containers, running and stopped @@//
+docker build -t image:tag . //@@color:blue; build a docker image @@//
+docker run -it -v /local/path:/image/path image:tag //@@color:blue; run an interactive (-it) image, link a local directory (-v) @@//
+docker run -d -p 6379:6379 redis //@@color:blue; run as a daemon, map redis image port 6379 to localhost:6379 @@//
+docker commit //@@color:blue; convert a container into an image @@//
+docker push //@@color:blue; push an image to docker hub @@//
+
+''Remove all containers'' - docker rm $(docker ps -a -q)
+''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
+</pre>
+</div>
 <div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201510171003" changecount="13">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
 git status //@@color:blue; show what has changed@@//
@@ -576,15 +589,6 @@ To get started with this blank [[TiddlyWiki]], you'll need to modify the followi
 You'll also need to enter your username for signing your edits: &lt;&lt;option txtUserName&gt;&gt;
 </pre>
 </div>
-<div title="Installing Julia" creator="38911" modifier="38911" created="201510261449" modified="201510261449" changecount="2">
-<pre>To install on Ubuntu:
-{{{
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo add-apt-repository ppa:staticfloat/juliareleases
-sudo apt-get update
-sudo apt-get -y install julia
-}}}</pre>
-</div>
 <div title="JQuery" creator="38911" modifier="38911" created="201507202103" modified="201507202131" changecount="14">
 <pre>''Run code on load'' {{{ $(document).ready(function() { ... }) }}} or just {{{ $(function() { ... }) }}}
 ''Selectors'' element: {{{ $(&quot;p&quot;) }}} id: {{{ $(&quot;#test&quot;) }}} class: {{{ $(&quot;.test&quot;) }}} MoreSelectors
@@ -600,22 +604,20 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
-<div title="Julia" creator="38911" modifier="38911" created="201510261448" changecount="1">
-<pre>[[Installing Julia]]</pre>
-</div>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201510261448" changecount="9">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201511080229" changecount="9">
 <pre>[[Atom]]
+[[Docker]]
 [[GettingStarted]]
 [[GIT]]
 [[JQuery]]
-[[Julia]]
 [[KDB]]
 [[macports]]
 [[npm]]
-[[Raspberry Pi]]</pre>
+[[Raspberry Pi]]
+[[screen]]</pre>
 </div>
 <div title="MoreSelectors" creator="38911" modifier="38911" created="201507202109" modified="201507202110" changecount="2">
 <pre>|! Syntax |! Description |
@@ -698,6 +700,23 @@ Major releases: * or x
 ''Help''
 npm faq
 npm commands</pre>
+</div>
+<div title="screen" creator="38911" modifier="38911" created="201511080253" modified="201511080257" changecount="3">
+<pre>ctrl-a prefixed cmds:
+a a //@@color:blue; move to the start of a line (sends a ctrl-a to the terminal) @@//
+c //@@color:blue; create a new terminal @@//
+A //@@color:blue; rename a terminal @@//
+n / p //@@color:blue; next / previous terminal @@//
+S //@@color:blue; split the window @@//
+Q //@@color:blue; delete current pane @@//
+tab //@@color:blue; move to second pane @@//
+d //@@color:blue; detach the screen session @@//
+
+screen -list //@@color:blue; list screen sessions @@//
+screen -r [pid] //@@color:blue; reattach to a screen session @@//
+ctrl-L //@@color:blue; clear &amp; reset the screen @@//
+ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
+</pre>
 </div>
 </div>
 <!--POST-STOREAREA-->
