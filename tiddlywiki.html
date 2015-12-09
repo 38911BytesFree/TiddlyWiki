@@ -542,8 +542,10 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201511080246" changecount="8">
-<pre>docker images - //@@color:blue; list images @@//
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201511180516" changecount="10">
+<pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
+
+docker images - //@@color:blue; list images @@//
 docker ps -a - //@@color:blue; list all containers, running and stopped @@//
 docker build -t image:tag . //@@color:blue; build a docker image @@//
 docker run -it -v /local/path:/image/path image:tag //@@color:blue; run an interactive (-it) image, link a local directory (-v) @@//
@@ -635,7 +637,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201510102220" changecount="15">
+<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201512060144" changecount="17">
 <pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
 ''Restart wifi'' - sudo service networking restart
 
@@ -662,6 +664,16 @@ sudo service apache2 restart
 sudo service minidlna stop
 sudo service minidlna force-reload
 sudo service minidlna start
+
+''External Harddisk''
+blkid //@@color:blue; - see the device UUID @@//
+hdparm -I /dev/sda1 //@@color:blue; - see hard disk info @@//
+hdparm -B /dev/sda1 //@@color:blue; - power management feature. Must be &lt; 127 to enable spindown @@//
+hdparm -S60 /dev/sda1 //@@color:blue; - standby after 5mins @@//
+cat /proc/diskstats | grep sda1 //@@color:blue; - field 9 (third from the end) is zero if the disk is idle
+
+
+
 
 ''Wheezy-backports''
 Add a .list file here: /etc/apt/sources.list.d/ containing
