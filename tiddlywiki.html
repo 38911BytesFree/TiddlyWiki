@@ -557,8 +557,9 @@ docker push //@@color:blue; push an image to docker hub @@//
 ''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201510171003" changecount="13">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201512230311" changecount="17">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
+git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
 git status //@@color:blue; show what has changed@@//
 git add (files to be committed)
 git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
