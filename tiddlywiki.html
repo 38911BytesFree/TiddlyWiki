@@ -542,7 +542,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201511180516" changecount="10">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201601240654" changecount="11">
 <pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
 docker images - //@@color:blue; list images @@//
@@ -555,7 +555,11 @@ docker push //@@color:blue; push an image to docker hub @@//
 
 ''Remove all containers'' - docker rm $(docker ps -a -q)
 ''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
-</pre>
+
+''Copy a file from a running container''
+docker run nginx:1.7 true
+ID=`docker ps -ql`
+docker cp $ID:/etc/nginx </pre>
 </div>
 <div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201512230311" changecount="17">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
