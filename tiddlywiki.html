@@ -561,7 +561,7 @@ docker run nginx:1.7 true
 ID=`docker ps -ql`
 docker cp $ID:/etc/nginx </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201512230311" changecount="17">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201601271415" changecount="19">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
 git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
 git status //@@color:blue; show what has changed@@//
@@ -579,12 +579,17 @@ git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
 git push
 git checkout gh-pages
 
+''Connecting to git from a server for the first time''
+ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git repository@@//
+
 !Stashes
 git stash //@@color:blue;create a stash@@//
 git stash list //@@color:blue;list of current stashes@@//
 git stash apply //@@color:blue;apply changes from most recent stash@@//
 git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
-git stash pop //@@color:blue;pop a stash off the stack@@//</pre>
+git stash pop //@@color:blue;pop a stash off the stack@@//
+
+</pre>
 </div>
 <div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" changecount="1">
 <pre>[[TiddlyWiki Markup Summary | http://tiddlywiki.tiddlyspace.com/TiddlyWiki%20Markup]]
