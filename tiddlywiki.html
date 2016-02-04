@@ -542,14 +542,17 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201601240654" changecount="11">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602042243" changecount="18">
 <pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
 docker images - //@@color:blue; list images @@//
 docker ps -a - //@@color:blue; list all containers, running and stopped @@//
 docker build -t image:tag . //@@color:blue; build a docker image @@//
 docker run -it -v /local/path:/image/path image:tag //@@color:blue; run an interactive (-it) image, link a local directory (-v) @@//
-docker run -d -p 6379:6379 redis //@@color:blue; run as a daemon, map redis image port 6379 to localhost:6379 @@//
+docker run &quot;&quot;&quot;--&quot;&quot;&quot;name mongodb -p 27017:27017 -d mongo //@@color:blue; run a container named mongodb as a daemon, map 27017 to localhost:27017 @@//
+docker rm mongodb //@@color:blue;remove the container named mongodb@@//
+docker stop mongodb //@@color:blue;stop the container named mongodb@@//
+docker start mongodb //@@color:blue;start the container named mongodb@@//
 docker commit //@@color:blue; convert a container into an image @@//
 docker push //@@color:blue; push an image to docker hub @@//
 
@@ -561,7 +564,7 @@ docker run nginx:1.7 true
 ID=`docker ps -ql`
 docker cp $ID:/etc/nginx </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201601271415" changecount="19">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201602042234" changecount="20">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
 git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
 git status //@@color:blue; show what has changed@@//
@@ -572,6 +575,7 @@ git push
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
 git rm file //@@color:blue;delete a file@@//
+git checkout -- . //@@color:blue;discard all unstaged changes@@//
 
 ''Syncing a branch''
 git checkout master //@@color:blue; move to master branch@@//
