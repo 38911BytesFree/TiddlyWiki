@@ -525,10 +525,11 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201602071220" changecount="3">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201602071410" changecount="5">
 <pre>aws ec2 describe-instances
-aws s3 cp USDJPY s3://jp-bigdata-bucket/USDJPY &quot;&quot;&quot;--&quot;&quot;&quot;recursive
+aws s3 cp USDJPY s3://jp-bigdata-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY/
+aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY USDJPY
 </pre>
 </div>
 <div title="Add action to ctrl-enter" creator="38911" modifier="38911" created="201509130106" changecount="1">
@@ -734,9 +735,9 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="screen" creator="38911" modifier="38911" created="201511080253" modified="201511080257" changecount="3">
+<div title="screen" creator="38911" modifier="38911" created="201511080253" modified="201602110954" changecount="6">
 <pre>ctrl-a prefixed cmds:
-a a //@@color:blue; move to the start of a line (sends a ctrl-a to the terminal) @@//
+a //@@color:blue; move to the start of a line (sends a ctrl-a to the terminal) @@//
 c //@@color:blue; create a new terminal @@//
 A //@@color:blue; rename a terminal @@//
 n / p //@@color:blue; next / previous terminal @@//
@@ -744,6 +745,7 @@ S //@@color:blue; split the window @@//
 Q //@@color:blue; delete current pane @@//
 tab //@@color:blue; move to second pane @@//
 d //@@color:blue; detach the screen session @@//
+ctrl-a a d //@@color:blue;detach a remote screen session while running screen locally @@//
 
 screen -list //@@color:blue; list screen sessions @@//
 screen -r [pid] //@@color:blue; reattach to a screen session @@//
