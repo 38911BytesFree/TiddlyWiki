@@ -525,9 +525,9 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201602071410" changecount="5">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201602121117" changecount="6">
 <pre>aws ec2 describe-instances
-aws s3 cp USDJPY s3://jp-bigdata-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
+aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY/
 aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY USDJPY
 </pre>
@@ -549,7 +549,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602042243" changecount="18">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602180047" changecount="22">
 <pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
 docker images - //@@color:blue; list images @@//
@@ -562,14 +562,21 @@ docker stop mongodb //@@color:blue;stop the container named mongodb@@//
 docker start mongodb //@@color:blue;start the container named mongodb@@//
 docker commit //@@color:blue; convert a container into an image @@//
 docker push //@@color:blue; push an image to docker hub @@//
+docker volume ls //@@color:blue;list volumes @@//
+docker exec -it node_web_1 /bin/bash //@@color:blue;log into a running container @@//
 
 ''Remove all containers'' - docker rm $(docker ps -a -q)
 ''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
+''Remove dangling volumes'' - docker volume rm $(docker volume ls -f dangling=true -q)
 
 ''Copy a file from a running container''
 docker run nginx:1.7 true
 ID=`docker ps -ql`
-docker cp $ID:/etc/nginx </pre>
+docker cp $ID:/etc/nginx 
+
+''To use docker without sudo on an ec2 machine''
+sudo usermod -a -G docker ec2-user
+</pre>
 </div>
 <div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201602042234" changecount="20">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
