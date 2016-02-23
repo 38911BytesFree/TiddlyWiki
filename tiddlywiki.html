@@ -578,12 +578,13 @@ docker cp $ID:/etc/nginx
 sudo usermod -a -G docker ec2-user
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201602042234" changecount="20">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201602210253" changecount="21">
 <pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
 git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
 git status //@@color:blue; show what has changed@@//
 git add (files to be committed)
 git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
+git diff origin/master //@@color:blue;diff untracked files@@//
 git commit -m &quot;change msg&quot;
 git push
 
@@ -666,7 +667,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201512060144" changecount="17">
+<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201602202331" changecount="19">
 <pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
 ''Restart wifi'' - sudo service networking restart
 
@@ -699,10 +700,7 @@ blkid //@@color:blue; - see the device UUID @@//
 hdparm -I /dev/sda1 //@@color:blue; - see hard disk info @@//
 hdparm -B /dev/sda1 //@@color:blue; - power management feature. Must be &lt; 127 to enable spindown @@//
 hdparm -S60 /dev/sda1 //@@color:blue; - standby after 5mins @@//
-cat /proc/diskstats | grep sda1 //@@color:blue; - field 9 (third from the end) is zero if the disk is idle
-
-
-
+cat /proc/diskstats | grep sda1 //@@color:blue; - field 9 (third from the end) is zero if the disk is idle @@//
 
 ''Wheezy-backports''
 Add a .list file here: /etc/apt/sources.list.d/ containing
@@ -712,7 +710,12 @@ deb http://http.debian.net/debian wheezy-backports main
 {{{
 gpg --keyserver pgpkeys.mit.edu --recv-key  010908312D230C5F      
 gpg -a --export 010908312D230C5F | sudo apt-key add -
-}}}</pre>
+}}}
+
+''Setting the timezone''
+sudo su root
+timedatectl set-timezone '...'
+</pre>
 </div>
 <div title="macports" creator="38911" modifier="38911" created="201509191134" modified="201509191137" changecount="6">
 <pre>sudo port selfupdate
