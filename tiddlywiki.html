@@ -549,7 +549,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602180047" changecount="22">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602291342" changecount="23">
 <pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
 docker images - //@@color:blue; list images @@//
@@ -564,6 +564,7 @@ docker commit //@@color:blue; convert a container into an image @@//
 docker push //@@color:blue; push an image to docker hub @@//
 docker volume ls //@@color:blue;list volumes @@//
 docker exec -it node_web_1 /bin/bash //@@color:blue;log into a running container @@//
+docker stats &lt;containerID&gt; //@@color:blue;show mem &amp; cpu usage info@@//
 
 ''Remove all containers'' - docker rm $(docker ps -a -q)
 ''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
@@ -638,7 +639,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201602261402" changecount="11">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201602291342" changecount="11">
 <pre>[[AWS]]
 [[Atom]]
 [[Docker]]
@@ -746,10 +747,9 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="python" creator="38911" modifier="38911" created="201602261403" changecount="1">
-<pre>''switch to python2.7''
-source activate python2
-pip install plotly //@@color:blue; install plotly on python2.7@@//</pre>
+<div title="python" creator="38911" modifier="38911" created="201602291343" changecount="1">
+<pre>''Change python installation''
+source activate python2</pre>
 </div>
 <div title="screen" creator="38911" modifier="38911" created="201511080253" modified="201602110954" changecount="6">
 <pre>ctrl-a prefixed cmds:
