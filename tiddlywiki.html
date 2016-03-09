@@ -636,10 +636,14 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
+<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201603092130" changecount="3">
+<pre>{{{LOAD_PATH}}} - @@color:blue;where to load modules @@
+{{{ENV[&quot;HOME&quot;]}}} - @@color:blue;get / set environment variables@@</pre>
+</div>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201603012314" changecount="12">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201603030839" changecount="13">
 <pre>[[AWS]]
 [[Atom]]
 [[Docker]]
@@ -652,7 +656,8 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 [[npm]]
 [[python]]
 [[Raspberry Pi]]
-[[screen]]</pre>
+[[screen]]
+[[Shell]]</pre>
 </div>
 <div title="MoreSelectors" creator="38911" modifier="38911" created="201507202109" modified="201507202110" changecount="2">
 <pre>|! Syntax |! Description |
@@ -719,6 +724,10 @@ gpg -a --export 010908312D230C5F | sudo apt-key add -
 sudo su root
 timedatectl set-timezone '...'
 </pre>
+</div>
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" changecount="1">
+<pre>''Renaming files''
+{{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}</pre>
 </div>
 <div title="macports" creator="38911" modifier="38911" created="201509191134" modified="201509191137" changecount="6">
 <pre>sudo port selfupdate
