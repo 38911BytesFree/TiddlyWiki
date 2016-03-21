@@ -525,12 +525,15 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201602121117" changecount="6">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201603201451" changecount="11">
 <pre>aws ec2 describe-instances
-aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
-aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY/
-aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;jp-bigdata-bucket/USDJPY USDJPY
-</pre>
+aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
+aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
+aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY USDJPY
+
+''EC2''
+sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc@@
+aws ecr get-login @@color:blue;get docker login command@@</pre>
 </div>
 <div title="Add action to ctrl-enter" creator="38911" modifier="38911" created="201509130106" changecount="1">
 <pre>''keymap.cson''
@@ -579,8 +582,13 @@ docker cp $ID:/etc/nginx
 sudo usermod -a -G docker ec2-user
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201602210253" changecount="21">
-<pre>git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201603210136" changecount="23">
+<pre>''Setup''
+&quot;&quot;&quot;git config --add user.name=abc&quot;&quot;&quot;
+&quot;&quot;&quot;git config --add user.email=abc@abc.com&quot;&quot;&quot;
+
+''Useful commands''
+git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
 git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
 git status //@@color:blue; show what has changed@@//
 git add (files to be committed)
