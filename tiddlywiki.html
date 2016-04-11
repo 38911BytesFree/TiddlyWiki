@@ -561,8 +561,14 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201602291342" changecount="23">
-<pre>docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201604110129" changecount="25">
+<pre>''Fix the time on the docker-machine VM''
+{{{
+docker-machine ssh
+sudo ntpclient -s -h time.nist.gov
+}}}
+
+docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
 docker images - //@@color:blue; list images @@//
 docker ps -a - //@@color:blue; list all containers, running and stopped @@//
@@ -589,6 +595,7 @@ docker cp $ID:/etc/nginx
 
 ''To use docker without sudo on an ec2 machine''
 sudo usermod -a -G docker ec2-user
+
 </pre>
 </div>
 <div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201603210136" changecount="23">
