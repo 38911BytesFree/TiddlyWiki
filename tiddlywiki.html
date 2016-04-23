@@ -561,7 +561,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201604110129" changecount="25">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201604152347" changecount="26">
 <pre>''Fix the time on the docker-machine VM''
 {{{
 docker-machine ssh
@@ -584,7 +584,7 @@ docker volume ls //@@color:blue;list volumes @@//
 docker exec -it node_web_1 /bin/bash //@@color:blue;log into a running container @@//
 docker stats &lt;containerID&gt; //@@color:blue;show mem &amp; cpu usage info@@//
 
-''Remove all containers'' - docker rm $(docker ps -a -q)
+''Remove all containers'' - docker rm -v $(docker ps -a -q -f status=exited)
 ''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
 ''Remove dangling volumes'' - docker volume rm $(docker volume ls -f dangling=true -q)
 
