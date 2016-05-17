@@ -561,7 +561,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201604152347" changecount="26">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201605170845" changecount="27">
 <pre>''Fix the time on the docker-machine VM''
 {{{
 docker-machine ssh
@@ -592,6 +592,9 @@ docker stats &lt;containerID&gt; //@@color:blue;show mem &amp; cpu usage info@@/
 docker run nginx:1.7 true
 ID=`docker ps -ql`
 docker cp $ID:/etc/nginx 
+
+''Out of space''
+rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
 
 ''To use docker without sudo on an ec2 machine''
 sudo usermod -a -G docker ec2-user
