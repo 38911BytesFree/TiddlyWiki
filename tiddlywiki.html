@@ -680,7 +680,7 @@ sys.version_info</pre>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201604070200" changecount="14">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201606250127" changecount="15">
 <pre>[[AWS]]
 [[Atom]]
 [[Docker]]
@@ -689,7 +689,7 @@ sys.version_info</pre>
 [[Julia]]
 [[JQuery]]
 [[KDB]]
-[[macports]]
+[[mac]]
 [[misc]]
 [[npm]]
 [[python]]
@@ -767,12 +767,17 @@ timedatectl set-timezone '...'
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}</pre>
 </div>
-<div title="macports" creator="38911" modifier="38911" created="201509191134" modified="201509191137" changecount="6">
-<pre>sudo port selfupdate
-sudo port upgrade outdated
-sudo port uninstall nodejs
-port search &quot;&quot;&quot;--&quot;&quot;&quot;name 'node*'
-</pre>
+<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201606250127" changecount="7">
+<pre>''Creating a bootable usb''
+Format the usb to MSDOS FAT (fat32)
+{{{
+hdiutil convert -format UDRW -o linuxmint.img linuxmint.iso 
+mv linuxmint.img.dmg linuxmint.img
+diskutil list (get the disk number 1, 2, ...)
+diskutil unmountDisk /dev/disk2
+sudo dd if=linuxmint.img of=/dev/rdisk2 bs=1m
+disktutil eject /dev/disk2
+}}}</pre>
 </div>
 <div title="misc" creator="38911" modifier="38911" created="201604070201" modified="201605270031" changecount="2">
 <pre>''gmail address aliases'' userid+notes@gmail.com works !
