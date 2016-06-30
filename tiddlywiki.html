@@ -680,7 +680,7 @@ sys.version_info</pre>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201606250127" changecount="15">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201606300202" changecount="16">
 <pre>[[AWS]]
 [[Atom]]
 [[Docker]]
@@ -695,7 +695,8 @@ sys.version_info</pre>
 [[python]]
 [[Raspberry Pi]]
 [[screen]]
-[[Shell]]</pre>
+[[Shell]]
+[[Win10]]</pre>
 </div>
 <div title="MoreSelectors" creator="38911" modifier="38911" created="201507202109" modified="201507202110" changecount="2">
 <pre>|! Syntax |! Description |
@@ -766,6 +767,16 @@ timedatectl set-timezone '...'
 <div title="Shell" creator="38911" modifier="38911" created="201603030840" changecount="1">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}</pre>
+</div>
+<div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201606300206" changecount="4">
+<pre>''To disable defender''
+Browse the registry to ~HKEY_LOCAL_MACHINE\SYSTEM\~CurrentControlSet\Services.
+Find services wdboot, wdfilter, wdnisdrv, wdnissvc, windefend.
+Change the Start value for each service to 4
+
+''To disable Cortana''
+takeown /f &quot;C:/Windows/~SystemApps/Microsoft.Windows.Cortana_cw5n1h2txyewy&quot; /R /D Y
+Then move it somewhere / rename ~SearchUI.exe</pre>
 </div>
 <div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201606250127" changecount="7">
 <pre>''Creating a bootable usb''
