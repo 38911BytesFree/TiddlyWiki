@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201607110051" changecount="14">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201608100924" changecount="15">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -546,7 +546,14 @@ $ swapon /swapfile
 
 ''Restarting docker''
 sudo service docker restart
-sudo start ecs</pre>
+sudo start ecs
+
+''Formatting instance store on r3.large''
+Add the following to /etc/cloud/cloud.cfg
+{{{
+bootcmd:
+- [ cloud-init-per, always, fix_ephemeral_mounting, mkfs.ext4, /dev/xvdb ]
+}}}</pre>
 </div>
 <div title="Add action to ctrl-enter" creator="38911" modifier="38911" created="201509130106" changecount="1">
 <pre>''keymap.cson''
