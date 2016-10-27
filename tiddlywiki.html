@@ -792,8 +792,16 @@ timedatectl set-timezone '...'
 ~.  - terminate session
 ~? - list escape sequences</pre>
 </div>
-<div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201606300206" changecount="4">
-<pre>''To disable defender''
+<div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610270912" changecount="5">
+<pre>''To create a bootable usb''
+{{{
+hdiutil convert -format UDRW -o ~/path/to/ubuntu.img ~/path/to/ubuntu.iso
+diskutil list
+sudo dd if=~/path/to/ubuntu.img of=/dev/{device-name} bs=1m
+diskutil eject /dev/diskN
+}}}
+
+''To disable defender''
 Browse the registry to ~HKEY_LOCAL_MACHINE\SYSTEM\~CurrentControlSet\Services.
 Find services wdboot, wdfilter, wdnisdrv, wdnissvc, windefend.
 Change the Start value for each service to 4
@@ -844,8 +852,15 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" changecount="1">
-<pre>''To set a password''
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201610270911" changecount="2">
+<pre>''psql login'' - psql -d dbname -U postgres
+''List of tables'' - \dt *.* or public.*
+''List of functions&quot; - \df public.*
+''Table definition'' - \d+ tablename
+''select 10 rows from a table'' - select * from table limit 10;
+''Roles'' - select * from pg_roles;
+
+''To set a password''
 Edit /etc/postgresql/9.5/main/pg_hba.conf - and set all methods to md5
 sudo passwd postgres
 sudo service postgresql restart
