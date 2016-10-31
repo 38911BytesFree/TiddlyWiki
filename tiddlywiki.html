@@ -573,12 +573,6 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Bash" creator="38911" modifier="38911" created="201610310756" modified="201610310757" changecount="3">
-<pre>''Redirect stdout before redirecting stderr to include all output'' echo &quot;abc&quot; &gt;outfile 2&gt;&amp;1
-''Replace first match'' ${string/pattern/replacement}
-''Replace all matches'' ${string//pattern/replacement}
-</pre>
-</div>
 <div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201605170845" changecount="27">
 <pre>''Fix the time on the docker-machine VM''
 {{{
@@ -705,10 +699,9 @@ sys.version_info</pre>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201610310753" changecount="19">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201610310800" changecount="20">
 <pre>[[AWS]]
 [[Atom]]
-[[Bash]]
 [[Docker]]
 [[Firefox]]
 [[GettingStarted]]
@@ -792,12 +785,17 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201607032316" changecount="3">
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201610310801" changecount="6">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Break out of an ssh session''
 ~.  - terminate session
-~? - list escape sequences</pre>
+~? - list escape sequences
+
+!Using Bash
+''Redirect stdout before redirecting stderr to include all output'' echo &quot;abc&quot; &gt;outfile 2&gt;&amp;1
+''Replace first match'' ${string/pattern/replacement}
+''Replace all matches'' ${string//pattern/replacement}</pre>
 </div>
 <div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610271840" changecount="6">
 <pre>''To disable defender''
