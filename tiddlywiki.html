@@ -851,10 +851,10 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201610270911" changecount="2">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201611140618" changecount="5">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List of tables'' - \dt *.* or public.*
-''List of functions&quot; - \df public.*
+''List of functions'' - \df public.*
 ''Table definition'' - \d+ tablename
 ''select 10 rows from a table'' - select * from table limit 10;
 ''Roles'' - select * from pg_roles;
@@ -873,7 +873,11 @@ create role abc;
 
 ''To run a file''
 sudo su postgres
-psql -d bestx -a -f init.sql</pre>
+psql -d bestx -a -f init.sql
+
+''Set system timezone''
+sudo timedatectl set-timezone Etc/UTC
+</pre>
 </div>
 <div title="python" creator="38911" modifier="38911" created="201602291343" modified="201603210819" changecount="2">
 <pre>''Change python installation''
