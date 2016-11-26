@@ -785,7 +785,7 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201611140210" changecount="8">
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201610310801" changecount="6">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Break out of an ssh session''
@@ -795,9 +795,7 @@ timedatectl set-timezone '...'
 !Using Bash
 ''Redirect stdout before redirecting stderr to include all output'' echo &quot;abc&quot; &gt;outfile 2&gt;&amp;1
 ''Replace first match'' ${string/pattern/replacement}
-''Replace all matches'' ${string//pattern/replacement}
-
-''Delete files older than a given date'' find abc* -not -newermt 2016-11-10 -delete</pre>
+''Replace all matches'' ${string//pattern/replacement}</pre>
 </div>
 <div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610271840" changecount="6">
 <pre>''To disable defender''
@@ -821,14 +819,14 @@ sudo dd if=linuxmint.img of=/dev/rdisk2 bs=1m
 disktutil eject /dev/disk2
 }}}</pre>
 </div>
-<div title="misc" creator="38911" modifier="38911" created="201604070201" modified="201605270031" changecount="2">
+<div title="misc" creator="38911" modifier="38911" created="201604070201" modified="201611260937" changecount="3">
 <pre>''gmail address aliases'' userid+notes@gmail.com works !
 
 ''socat''
 Listen on a socket and forward all tcp connections to another server
 {{{socat -d -d -d TCP4-LISTEN:8080,fork TCP4:11.31.24.44:1234}}}
 
-</pre>
+''searching for packages'' apt-cache search pkgname</pre>
 </div>
 <div title="npm" creator="38911" modifier="38911" created="201507111129" modified="201510180000" changecount="15">
 <pre>''Javascript package manager''
@@ -851,10 +849,10 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201611140618" changecount="5">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201610270911" changecount="2">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List of tables'' - \dt *.* or public.*
-''List of functions'' - \df public.*
+''List of functions&quot; - \df public.*
 ''Table definition'' - \d+ tablename
 ''select 10 rows from a table'' - select * from table limit 10;
 ''Roles'' - select * from pg_roles;
@@ -873,11 +871,7 @@ create role abc;
 
 ''To run a file''
 sudo su postgres
-psql -d bestx -a -f init.sql
-
-''Set system timezone''
-sudo timedatectl set-timezone Etc/UTC
-</pre>
+psql -d bestx -a -f init.sql</pre>
 </div>
 <div title="python" creator="38911" modifier="38911" created="201602291343" modified="201603210819" changecount="2">
 <pre>''Change python installation''
