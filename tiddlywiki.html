@@ -657,7 +657,7 @@ git stash pop //@@color:blue;pop a stash off the stack@@//
 
 </pre>
 </div>
-<div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" modified="201612180310" changecount="2">
+<div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" changecount="1">
 <pre>[[TiddlyWiki Markup Summary | http://tiddlywiki.tiddlyspace.com/TiddlyWiki%20Markup]]
 
 To get started with this blank [[TiddlyWiki]], you'll need to modify the following tiddlers:
@@ -665,7 +665,7 @@ To get started with this blank [[TiddlyWiki]], you'll need to modify the followi
 * [[MainMenu]]: The menu (usually on the left)
 * [[DefaultTiddlers]]: Contains the names of the tiddlers that you want to appear when the TiddlyWiki is opened
 You'll also need to enter your username for signing your edits: &lt;&lt;option txtUserName&gt;&gt;
-test</pre>
+</pre>
 </div>
 <div title="JQuery" creator="38911" modifier="38911" created="201507202103" modified="201507202131" changecount="14">
 <pre>''Run code on load'' {{{ $(document).ready(function() { ... }) }}} or just {{{ $(function() { ... }) }}}
@@ -850,10 +850,10 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201610270911" changecount="2">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201612190517" changecount="4">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List of tables'' - \dt *.* or public.*
-''List of functions&quot; - \df public.*
+''List of functions'' - \df public.*
 ''Table definition'' - \d+ tablename
 ''select 10 rows from a table'' - select * from table limit 10;
 ''Roles'' - select * from pg_roles;
@@ -872,7 +872,10 @@ create role abc;
 
 ''To run a file''
 sudo su postgres
-psql -d bestx -a -f init.sql</pre>
+psql -d bestx -a -f init.sql
+
+''String to uuid''
+cast('abcdabcd-abcd-abcd-abcd-abcdabcd' as uuid)</pre>
 </div>
 <div title="python" creator="38911" modifier="38911" created="201602291343" modified="201603210819" changecount="2">
 <pre>''Change python installation''
