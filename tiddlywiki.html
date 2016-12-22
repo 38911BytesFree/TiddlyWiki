@@ -850,7 +850,7 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201612190517" changecount="4">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201612221105" changecount="6">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List of tables'' - \dt *.* or public.*
 ''List of functions'' - \df public.*
@@ -875,7 +875,13 @@ sudo su postgres
 psql -d bestx -a -f init.sql
 
 ''String to uuid''
-cast('abcdabcd-abcd-abcd-abcd-abcdabcd' as uuid)</pre>
+cast('abcdabcd-abcd-abcd-abcd-abcdabcd' as uuid)
+
+''Set Timezone to UTC''
+show timezone;
+show ~CONFIG_FILE
+Restart on windows via services app
+</pre>
 </div>
 <div title="python" creator="38911" modifier="38911" created="201602291343" modified="201603210819" changecount="2">
 <pre>''Change python installation''
