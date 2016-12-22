@@ -785,7 +785,7 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201612050813" changecount="8">
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201612221134" changecount="9">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Break out of an ssh session''
@@ -796,7 +796,11 @@ timedatectl set-timezone '...'
 ''Redirect stdout before redirecting stderr to include all output'' echo &quot;abc&quot; &gt;outfile 2&gt;&amp;1
 ''Replace first match'' ${string/pattern/replacement}
 ''Replace all matches'' ${string//pattern/replacement}
-''Delete all files more than a week old'' find . -ctime +7 -delete</pre>
+''Delete all files more than a week old'' find . -ctime +7 -delete
+
+''Set timezone''
+sudo dpkg-reconfigure tzdata (and select 'Other' to find UTC)
+</pre>
 </div>
 <div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610271840" changecount="6">
 <pre>''To disable defender''
