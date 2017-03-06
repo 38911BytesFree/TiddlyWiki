@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201608100935" changecount="17">
+<div title="AWS" creator="38911" modifier="YourName" created="201602071220" modified="201703060219" changecount="18">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -535,6 +535,7 @@ aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY USDJPY
 sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc@@
 aws ecr get-login @@color:blue;get docker login command@@
 sudo chkconfig nginx  on @@color:blue;start nginx after reboot@@
+sudo resize2fs /dev/xvda1 @@color:blue;update an ebs volume after increasing the size@@
 
 ''Create a swapfile''
 {{{
@@ -819,7 +820,7 @@ Change the Start value for each service to 4
 takeown /f &quot;C:/Windows/~SystemApps/Microsoft.Windows.Cortana_cw5n1h2txyewy&quot; /R /D Y
 Then move it somewhere / rename ~SearchUI.exe</pre>
 </div>
-<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201610310759" changecount="8">
+<div title="mac" creator="38911" modifier="YourName" created="201509191134" modified="201703060221" changecount="9">
 <pre>''Creating a bootable usb'' (didn't work - create using windows instead)
 Format the usb to MSDOS FAT (fat32)
 {{{
@@ -829,7 +830,10 @@ diskutil list (get the disk number 1, 2, ...)
 diskutil unmountDisk /dev/disk2
 sudo dd if=linuxmint.img of=/dev/rdisk2 bs=1m
 disktutil eject /dev/disk2
-}}}</pre>
+}}}
+
+''Check why the mac is not going to sleep''
+sudo pmset -g</pre>
 </div>
 <div title="misc" creator="38911" modifier="38911" created="201604070201" modified="201611260937" changecount="3">
 <pre>''gmail address aliases'' userid+notes@gmail.com works !
