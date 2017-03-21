@@ -621,7 +621,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201612270208" changecount="26">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201703210210" changecount="29">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -649,15 +649,19 @@ git checkout gh-pages
 ''Connecting to git from a server for the first time''
 ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git repository@@//
 
+''Revert a pull''
+git reset &quot;&quot;&quot;--&quot;&quot;&quot;hard master@{&quot;10 minutes ago&quot;}
+
+''Completely remove all traces of a file from a repository''
+&quot;&quot;&quot;git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD&quot;&quot;&quot;
+
 !Stashes
 git stash //@@color:blue;create a stash@@//
 git stash list //@@color:blue;list of current stashes@@//
 git stash apply //@@color:blue;apply changes from most recent stash@@//
 git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
 git stash pop //@@color:blue;pop a stash off the stack@@//
-
-''Revert a pull''
-git reset &quot;&quot;&quot;--&quot;&quot;&quot;hard master@{&quot;10 minutes ago&quot;}</pre>
+</pre>
 </div>
 <div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" changecount="1">
 <pre>[[TiddlyWiki Markup Summary | http://tiddlywiki.tiddlyspace.com/TiddlyWiki%20Markup]]
