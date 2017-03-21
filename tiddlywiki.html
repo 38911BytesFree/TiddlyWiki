@@ -574,7 +574,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201605170845" changecount="27">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201703211002" changecount="28">
 <pre>''Fix the time on the docker-machine VM''
 {{{
 docker-machine ssh
@@ -611,6 +611,10 @@ rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Doc
 
 ''To use docker without sudo on an ec2 machine''
 sudo usermod -a -G docker ec2-user
+
+''Update memory limit on a running container''
+&quot;&quot;&quot;docker update --memory 4096M &lt;containerid&gt;&quot;&quot;&quot;
+
 
 </pre>
 </div>
@@ -705,13 +709,16 @@ sys.version_info</pre>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
 </div>
-<div title="Linux" creator="38911" modifier="38911" created="201701152344" modified="201703071036" changecount="2">
+<div title="Linux" creator="38911" modifier="38911" created="201701152344" modified="201703210942" changecount="3">
 <pre>''To reset hdmi output / sound without rebooting''
 xset -display :0 dpms force on
 alsactl kill rescan
 
 ''Find missing disk space''
-lsof | grep deleted </pre>
+lsof | grep deleted 
+
+''Flush cache buffers''
+&quot;&quot;&quot;echo 1 &gt; /proc/sys/vm/drop_caches&quot;&quot;&quot;</pre>
 </div>
 <div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="201701152342" changecount="21">
 <pre>[[AWS]]
