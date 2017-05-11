@@ -574,7 +574,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201703211002" changecount="28">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201705111026" changecount="29">
 <pre>''Fix the time on the docker-machine VM''
 {{{
 docker-machine ssh
@@ -583,6 +583,7 @@ sudo ntpclient -s -h time.nist.gov
 
 docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
 
+docker attach &lt;container name&gt; //@@color:blue;attach to the process running within a container @@//
 docker images - //@@color:blue; list images @@//
 docker ps -a - //@@color:blue; list all containers, running and stopped @@//
 docker build -t image:tag . //@@color:blue; build a docker image @@//
