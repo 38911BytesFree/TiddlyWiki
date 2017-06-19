@@ -695,7 +695,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
-<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201706161153" changecount="7">
+<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201706190025" changecount="8">
 <pre>{{{LOAD_PATH}}} - @@color:blue;where to load modules @@
 {{{ENV[&quot;HOME&quot;]}}} - @@color:blue;get / set environment variables@@
 
@@ -714,7 +714,26 @@ sys.version_info
 f(x) = 2x + 5
 code_llvm(f,(Int64,))
 code_native(f,(Int64,))
-}}}</pre>
+}}}
+
+Multiline comments - #= =#
+Coloured output - print_with_color(:red,&quot;text&quot;)
+Repl output - display(object)
+Integers 0b, 0o, 0x =&gt; binary, octal, hexidecimal
+Binary representation of a number - bits(24)
+Swap values - a,b = b,a
+Short circuit &amp;&amp; || &lt;=&gt; non-short circuit &amp; | 
+subtypes =&gt; list all subtypes
+supertype =&gt; return supertype
+methodswith(String) =&gt; all methods that operate on a string parameter
+@which =&gt; show the exact method to be called given arguments
+
+names - List top level variables and functions defined in a module
+whos - List top level vars / funcs of a module + their types
+
+
+
+</pre>
 </div>
 <div title="KDB" creator="38911" modifier="38911" created="201506271030" changecount="1">
 <pre>''ok'' - [[JS K5 implementation | https://github.com/JohnEarnest/ok ]] </pre>
