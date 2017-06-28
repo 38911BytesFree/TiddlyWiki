@@ -919,7 +919,7 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201705121217" changecount="9">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201706281158" changecount="10">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List all databases'' - \l
 ''Connect to a database'' - \connect dbname
@@ -929,6 +929,12 @@ npm commands</pre>
 ''select 10 rows from a table'' - select * from table limit 10;
 ''Roles'' - select * from pg_roles;
 ''Save to csv'' - \copy (select * from table) to '/path/to/filename.csv' csv header
+
+''Report currently running queries''
+{{{SELECT pid, age(query_start, clock_timestamp()), usename, query
+FROM pg_stat_activity
+WHERE query != '&lt;IDLE&gt;' AND query NOT ILIKE '%pg_stat_activity%'
+ORDER BY query_start desc;}}}
 
 ''To set a password''
 Edit /etc/postgresql/9.5/main/pg_hba.conf - and set all methods to md5
