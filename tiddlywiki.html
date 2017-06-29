@@ -695,7 +695,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
-<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201706200812" changecount="10">
+<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201706290538" changecount="12">
 <pre>{{{LOAD_PATH}}} - @@color:blue;where to load modules @@
 {{{ENV[&quot;HOME&quot;]}}} - @@color:blue;get / set environment variables@@
 
@@ -708,6 +708,9 @@ sudo apt-get update
 ''To check the version of python being used''
 @pyimport sys
 sys.version_info
+
+''JuliaDB''
+{{{TextParse.csvread(&quot;test.txt&quot;,colparsers = Dict(&quot;colname&quot;=&gt;TextParse.StrRange))}}}
 
 Multiline comments - #= =#
 Coloured output - print_with_color(:red,&quot;text&quot;)
