@@ -695,7 +695,7 @@ var txt3 = document.createElement(&quot;p&quot;);  //@@color:green; Create with 
 ''Remove content'' - remove, empty. Remove can filter based on class, etc
 </pre>
 </div>
-<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201706290538" changecount="12">
+<div title="Julia" creator="38911" modifier="38911" created="201603092129" modified="201707021040" changecount="13">
 <pre>{{{LOAD_PATH}}} - @@color:blue;where to load modules @@
 {{{ENV[&quot;HOME&quot;]}}} - @@color:blue;get / set environment variables@@
 
@@ -723,6 +723,7 @@ subtypes =&gt; list all subtypes
 supertype =&gt; return supertype
 methodswith(String) =&gt; all methods that operate on a string parameter
 @which =&gt; show the exact method to be called given arguments
+@timev =&gt; elapsed time + detailed memory info
 
 names - List top level variables and functions defined in a module
 whos - List top level vars / funcs of a module + their types
@@ -736,7 +737,14 @@ eval - evaluate an Expr
 {{{code_native(f,(Int64,))}}} - show native code
 {{{@code_warntype(f(20))}}} - check for performance bottlenecks
 
+Pkg.resolve() - resolve dependencies from a REQUIRE file
+Pkg.pin(&quot;HDF5&quot;, v&quot;0.4.3&quot;) - force the use of a given package version
+Pkg.clone(&quot;git@github.ANN.jl.git&quot;) - get an unpublished package
 
+@profile - sampling profiler
+Profile.print / clear / init () - 
+
+zero(x) - return a zero with type x
 
 
 </pre>
