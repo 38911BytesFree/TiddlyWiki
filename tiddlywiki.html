@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="YourName" created="201602071220" modified="201703060219" changecount="18">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201708250002" changecount="19">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -543,6 +543,7 @@ $ dd if=/dev/zero of=/swapfile bs=1024 count=1500000
 $ mkswap /swapfile
 $ chmod 0600 /swapfile
 $ swapon /swapfile
+$ sysctl vm.swappiness=0 # make sure swap is not used unless absolutely necessary    
 }}}
 
 ''Restarting docker''
