@@ -627,7 +627,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201704040544" changecount="30">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201710020506" changecount="35">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -669,7 +669,16 @@ git stash list //@@color:blue;list of current stashes@@//
 git stash apply //@@color:blue;apply changes from most recent stash@@//
 git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
 git stash pop //@@color:blue;pop a stash off the stack@@//
-</pre>
+
+''Delete tags''
+&quot;&quot;&quot;git tag -d &lt;tag_name&gt;&quot;&quot;&quot;
+&quot;&quot;&quot;git push origin :refs/tags/&lt;tag_name&gt;&quot;&quot;&quot;
+''Delete a remote branch''
+&quot;&quot;&quot;git push origin --delete &lt;branch_name&gt;&quot;&quot;&quot;
+''Remove old history''
+&quot;&quot;&quot;echo 4a46bc886318679d8b15e05aea40b83ff6c3bd47 &gt; .git/info/grafts&quot;&quot;&quot;
+&quot;&quot;&quot;git filter-branch&quot;&quot;&quot;
+&quot;&quot;&quot;git push --force&quot;&quot;&quot;</pre>
 </div>
 <div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" changecount="1">
 <pre>[[TiddlyWiki Markup Summary | http://tiddlywiki.tiddlyspace.com/TiddlyWiki%20Markup]]
