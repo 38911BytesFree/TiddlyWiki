@@ -896,7 +896,7 @@ Change the Start value for each service to 4
 takeown /f &quot;C:/Windows/~SystemApps/Microsoft.Windows.Cortana_cw5n1h2txyewy&quot; /R /D Y
 Then move it somewhere / rename ~SearchUI.exe</pre>
 </div>
-<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201709031105" changecount="12">
+<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201710181130" changecount="14">
 <pre>''Creating a bootable usb'' (didn't work - create using windows instead)
 Format the usb to MSDOS FAT (fat32)
 {{{
@@ -911,6 +911,7 @@ disktutil eject /dev/disk2
 ''Check why the mac is not going to sleep''
 pmset -g assertions
 
+''Avoid entering safe mode with a stuck shift key'' - Press OPT while rebooting
 ''Recovery mode'' - boot up with command - R pressed
 ''Disable SIP'' csrutil disable</pre>
 </div>
