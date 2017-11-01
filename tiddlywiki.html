@@ -1018,8 +1018,15 @@ ctrl-L //@@color:blue; clear &amp; reset the screen @@//
 ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
 </pre>
 </div>
-<div title="tmux" creator="38911" modifier="38911" created="201703220103" changecount="1">
-<pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
+<div title="tmux" creator="38911" modifier="38911" created="201703220103" modified="201711010210" changecount="2">
+<pre>tmux ls - list sessions
+tmux a -t &lt;val&gt; - attach to a session
+
+&lt;prefix&gt; : - type a command
+&lt;prefix&gt; d - detach
+&lt;prefix&gt; x - kill the current pane
+
+''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
 </div>
 <div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201710240924" changecount="5">
 <pre>''delete lines from 2 to 1 above current''
