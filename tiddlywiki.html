@@ -896,7 +896,7 @@ Change the Start value for each service to 4
 takeown /f &quot;C:/Windows/~SystemApps/Microsoft.Windows.Cortana_cw5n1h2txyewy&quot; /R /D Y
 Then move it somewhere / rename ~SearchUI.exe</pre>
 </div>
-<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201710181130" changecount="14">
+<div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201711200251" changecount="15">
 <pre>''Creating a bootable usb'' (didn't work - create using windows instead)
 Format the usb to MSDOS FAT (fat32)
 {{{
@@ -913,7 +913,8 @@ pmset -g assertions
 
 ''Avoid entering safe mode with a stuck shift key'' - Press OPT while rebooting
 ''Recovery mode'' - boot up with command - R pressed
-''Disable SIP'' csrutil disable</pre>
+''Disable SIP'' csrutil disable
+''Force a dns cache refresh'' - sudo killall -HUP mDNSResponder</pre>
 </div>
 <div title="misc" creator="38911" modifier="38911" created="201604070201" modified="201707300907" changecount="4">
 <pre>''email address aliases'' userid+notes@gmail.com works !
@@ -1018,15 +1019,8 @@ ctrl-L //@@color:blue; clear &amp; reset the screen @@//
 ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
 </pre>
 </div>
-<div title="tmux" creator="38911" modifier="38911" created="201703220103" modified="201711010210" changecount="2">
-<pre>tmux ls - list sessions
-tmux a -t &lt;val&gt; - attach to a session
-
-&lt;prefix&gt; : - type a command
-&lt;prefix&gt; d - detach
-&lt;prefix&gt; x - kill the current pane
-
-''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
+<div title="tmux" creator="38911" modifier="38911" created="201703220103" changecount="1">
+<pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
 </div>
 <div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201710240924" changecount="5">
 <pre>''delete lines from 2 to 1 above current''
