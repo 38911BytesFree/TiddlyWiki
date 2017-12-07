@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201712070034" changecount="23">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201712070230" changecount="24">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -536,7 +536,7 @@ sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc
 aws ecr get-login @@color:blue;get docker login command@@
 sudo chkconfig nginx  on @@color:blue;start nginx after reboot@@
 
-''to resize root volume''
+''To resize root volume''
 sudo growpart /dev/xvda 1 @@color:blue;Expand the modified partition - note space separated device number@@
 sudo resize2fs /dev/xvda1 @@color:blue;update an ebs volume after increasing the size@@
 
@@ -578,7 +578,7 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201705111026" changecount="29">
+<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201712070230" changecount="30">
 <pre>''Fix the time on the docker-machine VM''
 {{{
 docker-machine ssh
@@ -613,6 +613,12 @@ docker cp $ID:/etc/nginx
 
 ''Out of space''
 rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+''Remove and reinstall''
+service docker stop
+yum remove docker -y
+rm -rf /var/lib/docker
+yum install docker -y
+service docker start
 
 ''To use docker without sudo on an ec2 machine''
 sudo usermod -a -G docker ec2-user
