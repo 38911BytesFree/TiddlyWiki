@@ -636,7 +636,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201710020506" changecount="35">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201712241406" changecount="37">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -650,6 +650,8 @@ git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
 git diff origin/master //@@color:blue;diff untracked files@@//
 git commit -m &quot;change msg&quot;
 git push
+git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//        
+
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
 git rm file //@@color:blue;delete a file@@//
