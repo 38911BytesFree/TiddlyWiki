@@ -636,7 +636,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201801100702" changecount="38">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201712241406" changecount="37">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -650,8 +650,7 @@ git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
 git diff origin/master //@@color:blue;diff untracked files@@//
 git commit -m &quot;change msg&quot;
 git push
-git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//
-git diff $(git merge-base -a master dev) //@@color:blue;diff changes in branch dev against the branchpoint @@//
+git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//        
 
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
@@ -877,7 +876,7 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201801091012" changecount="12">
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201706090148" changecount="11">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Trim spaces from csv''
@@ -896,14 +895,7 @@ timedatectl set-timezone '...'
 
 ''Set timezone''
 sudo dpkg-reconfigure tzdata (and select 'Other' to find UTC)
-
-''Processing output from grep''
-{{{
-grep xyz abc.txt | while read -r line ; do
-    echo &quot;Processing $line&quot;
-    # your code goes here
-done
-}}}</pre>
+</pre>
 </div>
 <div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610271840" changecount="6">
 <pre>''To disable defender''
@@ -965,12 +957,13 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201706281158" changecount="10">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201802060011" changecount="13">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List all databases'' - \l
 ''Connect to a database'' - \connect dbname
 ''List of tables'' - \dt *.* or public.*
 ''List of functions'' - \df public.*
+''List the function source code'' - \df+ functionname
 ''Table definition'' - \d+ tablename
 ''select 10 rows from a table'' - select * from table limit 10;
 ''Roles'' - select * from pg_roles;
@@ -1038,11 +1031,8 @@ ctrl-L //@@color:blue; clear &amp; reset the screen @@//
 ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
 </pre>
 </div>
-<div title="tmux" creator="38911" modifier="38911" created="201703220103" modified="201801180437" changecount="3">
-<pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;
-''ctrl-a esc 1 to 5'' - preset layouts
-''ctrl-a hold down ctrl o'' - rotate pane contents
-</pre>
+<div title="tmux" creator="38911" modifier="38911" created="201703220103" changecount="1">
+<pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
 </div>
 <div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201710240924" changecount="5">
 <pre>''delete lines from 2 to 1 above current''
