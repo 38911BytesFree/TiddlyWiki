@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201712070230" changecount="24">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201802212337" changecount="25">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -548,6 +548,10 @@ $ chmod 0600 /swapfile
 $ swapon /swapfile
 $ sysctl vm.swappiness=1 # make sure swap is not used unless absolutely necessary    
 }}}
+
+''Update the ECS Container Agent''
+sudo yum update -y ecs-init
+then restart.
 
 ''Restarting docker''
 sudo service docker restart
@@ -636,7 +640,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201802122347" changecount="38">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201712241406" changecount="37">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -651,8 +655,7 @@ git diff origin/master //@@color:blue;diff untracked files@@//
 git commit -m &quot;change msg&quot;
 git push
 git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//        
-git checkout source_branch &lt;paths&gt;... //@@color:blue;merge specific files from a branch @@//
-git diff branchname &quot;&quot;&quot;--&quot;&quot;&quot; //@@color:blue;diff against a branch @@//
+
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
 git rm file //@@color:blue;delete a file@@//
