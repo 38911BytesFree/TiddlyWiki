@@ -968,7 +968,7 @@ Major releases: * or x
 npm faq
 npm commands</pre>
 </div>
-<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201802060011" changecount="13">
+<div title="postgres" creator="38911" modifier="38911" created="201610250143" modified="201805230133" changecount="14">
 <pre>''psql login'' - psql -d dbname -U postgres
 ''List all databases'' - \l
 ''Connect to a database'' - \connect dbname
@@ -985,6 +985,9 @@ npm commands</pre>
 FROM pg_stat_activity
 WHERE query != '&lt;IDLE&gt;' AND query NOT ILIKE '%pg_stat_activity%'
 ORDER BY query_start desc;}}}
+
+''Grant permissions''
+GRANT ALL PRIVILEGES ON TABLE side_adzone TO jerry;
 
 ''To set a password''
 Edit /etc/postgresql/9.5/main/pg_hba.conf - and set all methods to md5
