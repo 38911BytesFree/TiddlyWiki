@@ -887,13 +887,15 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201706090148" changecount="11">
+<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201805310515" changecount="13">
 <pre>''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Trim spaces from csv''
 {{{awk 'BEGIN{FS=&quot; *, *&quot;; OFS=&quot;,&quot;} {$1=$1; print}'}}}
 ''Split up a csv based on a field value''
 {{{zcat filename.csv.gz | awk 'BEGIN{FS=OFS=&quot;,&quot;} {print $0 &gt; $1 &quot;.csv&quot;}'}}}
+''Count occurrences of field values in a column''
+{{{cat file | awk -F&quot;,&quot; '{count[$69]++} END {for (word in count) print word, count[word]}' }}}
 ''Break out of an ssh session''
 ~.  - terminate session
 ~? - list escape sequences
