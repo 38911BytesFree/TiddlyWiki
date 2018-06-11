@@ -1050,7 +1050,7 @@ ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
 <div title="tmux" creator="38911" modifier="38911" created="201703220103" changecount="1">
 <pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
 </div>
-<div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201710240924" changecount="5">
+<div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201806110454" changecount="8">
 <pre>''delete lines from 2 to 1 above current''
 &quot;&quot;&quot;:2,.-1d&quot;&quot;&quot;
 ''delete from the current line to end of file''
@@ -1070,6 +1070,9 @@ eg: vt)c - highlight the text up to the left bracket and then delete it with c
 ''ctrl-n'' - word completion
 ''.'' - repeat last change
 ''registers'' qa (start recording) q (finish recording) @a - playback
+
+''Get rid of ^M followed by newlines''
+{{{:%s/^M\n//}}} where ^M is CTRL followed by V and then M
 </pre>
 </div>
 </div>
