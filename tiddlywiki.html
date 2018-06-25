@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201806250246" changecount="29">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201806250256" changecount="31">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -558,7 +558,7 @@ sudo service docker restart
 sudo start ecs
 ''Update ~ECS_CLUSTER''
 vi /etc/ecs/ecs.config and set ~ECS_CLUSTER=&lt;cluster name&gt;
-delete /var/lib/ecs/data/ecs_agent_data.json
+rm /var/lib/ecs/data/*
 
 ''Restart sshd'' /etc/init.d/sshd restart
 
