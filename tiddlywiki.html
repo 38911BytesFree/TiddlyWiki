@@ -644,7 +644,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201712241406" changecount="37">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201806260228" changecount="38">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -670,6 +670,10 @@ git checkout master //@@color:blue; move to master branch@@//
 git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
 git push
 git checkout gh-pages
+
+''Merge a change from one branch to another''
+Run from the branch where you want the file to end up:
+git checkout otherbranch myfile.txt
 
 ''Connecting to git from a server for the first time''
 ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git repository@@//
