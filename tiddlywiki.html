@@ -846,9 +846,14 @@ tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
 </pre>
 </div>
-<div title="Raspberry Pi" creator="38911" modifier="38911" created="201507050106" modified="201602202331" changecount="19">
+<div title="Raspberry Pi" creator="38911" modifier="YourName" created="201507050106" modified="201810131239" changecount="21">
 <pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
 ''Restart wifi'' - sudo service networking restart
+
+''set locale''
+Edit /etc/locale.gen and uncomment the line with en_US.~UTF-8
+sudo locale-gen en_US.~UTF-8
+sudo update-locale en_US.~UTF-8
 
 ''Installation upgrade''
 sudo apt-get update
@@ -896,8 +901,10 @@ sudo su root
 timedatectl set-timezone '...'
 </pre>
 </div>
-<div title="Shell" creator="38911" modifier="38911" created="201603030840" modified="201806260730" changecount="16">
-<pre>''Renaming files''
+<div title="Shell" creator="38911" modifier="YourName" created="201603030840" modified="201809180107" changecount="17">
+<pre>''Delete a column from a csv''
+{{{cut -d, -f4 --complement example.csv &gt; input.csv}}}
+''Renaming files''
 {{{ls -1 *.csv | awk -F&quot;[._]&quot; '{printf &quot;mv %s_slim.%s %s.%s\n&quot;,$1,$3,$1,$3}' | sh}}}
 ''Trim spaces from csv''
 {{{awk 'BEGIN{FS=&quot; *, *&quot;; OFS=&quot;,&quot;} {$1=$1; print}'}}}
