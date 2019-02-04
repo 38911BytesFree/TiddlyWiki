@@ -525,7 +525,7 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201806250256" changecount="31">
+<div title="AWS" creator="38911" modifier="38911" created="201602071220" modified="201902040010" changecount="32">
 <pre>aws ec2 describe-instances
 aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
 aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
@@ -536,6 +536,8 @@ sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc
 aws ecr get-login @@color:blue;get docker login command@@
 sudo chkconfig nginx  on @@color:blue;start nginx after reboot@@
 
+''Find the volume name''
+sudo /sbin/ebsnvme-id /dev/nvme1n1
 ''To resize root volume''
 sudo growpart /dev/xvda 1 @@color:blue;Expand the modified partition - note space separated device number@@
 sudo resize2fs /dev/xvda1 @@color:blue;update an ebs volume after increasing the size@@
