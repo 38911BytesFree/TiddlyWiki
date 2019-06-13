@@ -646,7 +646,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201906130533" changecount="41">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201906130534" changecount="42">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -660,7 +660,8 @@ git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
 git diff origin/master //@@color:blue;diff untracked files@@//
 git commit -m &quot;change msg&quot;
 git push
-git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//        
+git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//     
+git checkout 'master@{1979-02-26 18:30:00}' //@@color:blue;checkout a branch as of a given date and time @@//   
 
 
 git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
@@ -672,7 +673,6 @@ git checkout master //@@color:blue; move to master branch@@//
 git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
 git push
 git checkout gh-pages
-git checkout 'master@{1979-02-26 18:30:00}'
 
 ''Find commits that are not in master''
 {{{git log &lt;branch&gt; --not master --no-merges}}}
