@@ -1078,7 +1078,7 @@ ctrl-a ctrl-\ //@@color:blue; close all windows and quit @@//
 <div title="tmux" creator="38911" modifier="38911" created="201703220103" changecount="1">
 <pre>''Reload config'' - &quot;&quot;&quot;tmux source-file ~/.tmux.config&quot;&quot;&quot;</pre>
 </div>
-<div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201907040411" changecount="9">
+<div title="vi" creator="38911" modifier="38911" created="201710111035" modified="201907120529" changecount="12">
 <pre>''delete lines from 2 to 1 above current''
 &quot;&quot;&quot;:2,.-1d&quot;&quot;&quot;
 ''delete from the current line to end of file''
@@ -1094,6 +1094,9 @@ eg: T(dt) - delete all text between two parenthesis.
 ''p'' - paste
 ''v'' - visual mode
 eg: vt)c - highlight the text up to the left bracket and then delete it with c  
+
+''ma'' - mark a
+''d'a'' - delete from a to the current line inclusive
 
 ''*'' - search for the next occurance of the word the cursor is on
 ''[('' - if the cursor is in between parenthesis, jump to the enclosing left parenthesis
