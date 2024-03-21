@@ -588,13 +588,14 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
 <div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
 <pre>[[Add action to ctrl-enter]]</pre>
 </div>
-<div title="Brew" creator="38911" modifier="38911" created="202403210725" changecount="1">
+<div title="Brew" creator="38911" modifier="38911" created="202403210725" modified="202403210731" changecount="2">
 <pre>Homebrew is a package manager for macOS.
 
 brew update - ensure brew has the latest information about software versions. Run before installing any new packages.
 brew list - list the formulae managed by brew
 brew install &lt;formula&gt; - install some software
-brew uninstall &lt;formula&gt; - delete some software. Brew will keep track of dependencies and not delete software if it is used by something else.</pre>
+brew uninstall &lt;formula&gt; - delete some software. Brew will keep track of dependencies and not delete software if it is used by something else.
+brew upgrade &lt;formula&gt; - upgrade some software to the latest version</pre>
 </div>
 <div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201712070230" changecount="30">
 <pre>''Fix the time on the docker-machine VM''
@@ -823,7 +824,7 @@ lsof | grep deleted
 ''Tar a directory''
 tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="202403210721" changecount="24">
+<div title="MainMenu" creator="YourName" modifier="38911" created="201506011413" modified="202403210740" changecount="25">
 <pre>[[AWS]]
 [[Atom]]
 [[Brew]]
@@ -845,7 +846,7 @@ tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 [[Shell]]
 [[tmux]]
 [[vi]]
-[[Win10]]</pre>
+[[Windows]]</pre>
 </div>
 <div title="MoreSelectors" creator="38911" modifier="38911" created="201507202109" modified="201507202110" changecount="2">
 <pre>|! Syntax |! Description |
@@ -947,15 +948,19 @@ sudo dpkg-reconfigure tzdata (and select 'Other' to find UTC)
 {{{printf &quot;\e[?2004l&quot;}}}
 </pre>
 </div>
-<div title="Win10" creator="38911" modifier="38911" created="201606300203" modified="201610271840" changecount="6">
-<pre>''To disable defender''
+<div title="Windows" creator="38911" modifier="38911" created="201606300203" modified="202403210739" changecount="12">
+<pre>Win10: ''To disable defender''
 Browse the registry to ~HKEY_LOCAL_MACHINE\SYSTEM\~CurrentControlSet\Services.
 Find services wdboot, wdfilter, wdnisdrv, wdnissvc, windefend.
 Change the Start value for each service to 4
 
-''To disable Cortana''
+Win10: ''To disable Cortana''
 takeown /f &quot;C:/Windows/~SystemApps/Microsoft.Windows.Cortana_cw5n1h2txyewy&quot; /R /D Y
-Then move it somewhere / rename ~SearchUI.exe</pre>
+Then move it somewhere / rename ~SearchUI.exe
+
+''Update the language settings on a single language version of Windows''
+&quot;&quot;&quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\Language&quot;&quot;&quot;
+Update Default and &quot;&quot;&quot;InstallLanguage&quot;&quot;&quot; to 0409 (for en-US) and reboot. No need to download or install anything. </pre>
 </div>
 <div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201711200251" changecount="15">
 <pre>''Creating a bootable usb'' (didn't work - create using windows instead)
