@@ -655,7 +655,7 @@ browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
 </div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="201906130534" changecount="42">
+<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="202403210834" changecount="43">
 <pre>''Setup''
 &quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
 &quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
@@ -697,6 +697,8 @@ ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git 
 git reset &quot;&quot;&quot;--&quot;&quot;&quot;hard master@{&quot;10 minutes ago&quot;}
 ''Revert an unpushed commit''
 &quot;&quot;&quot;git reset HEAD^&quot;&quot;&quot;
+''Force update of the git repository to match your local''
+&quot;&quot;&quot;git push origin +master --force&quot;&quot;&quot;
 
 ''Completely remove all traces of a file from a repository''
 &quot;&quot;&quot;git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD&quot;&quot;&quot;
