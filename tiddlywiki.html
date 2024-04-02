@@ -993,7 +993,7 @@ Listen on a socket and forward all tcp connections to another server
 
 ''searching for packages'' apt-cache search pkgname</pre>
 </div>
-<div title="npm" creator="38911" modifier="38911" created="201507111129" modified="201510180000" changecount="15">
+<div title="npm" creator="38911" modifier="38911BytesFree" created="201507111129" modified="202404021204" changecount="21">
 <pre>''Javascript package manager''
 
 sudo install npm -g //@@color:blue; install the latest version of npm globally@@//
@@ -1003,7 +1003,8 @@ npm outdated //@@color:blue; report any outdated packages in package.json@@//
 npm update //@@color:blue; update packages in package.json@@//
 
 npm init //@@color:blue; create a package.json that can be published to npm@@//
-&quot;&quot;&quot;npm list --global --depth=0&quot;&quot;&quot; //@@color:blue; show the globally installed packages@@//
+npm list {{{--}}}global {{{--}}}depth=0&quot;&quot;&quot; //@@color:blue; show the globally installed packages@@//
+npm install -g pnpm //@@color:blue; install pnpm globally@@//
 
 ''Semver - specifying package versions''
 Patch releases: 1.0 or 1.0.x or ~1.0.4
