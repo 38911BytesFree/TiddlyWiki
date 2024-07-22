@@ -525,54 +525,6 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="AWS" creator="38911" modifier="38911BytesFree" created="201602071220" modified="202407220651" changecount="33">
-<pre>sudo ntpdate time.nist.gov @@color:blue;to fix RequestTimeTooSkewed error@@
-
-aws ec2 describe-instances
-aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
-aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
-aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY USDJPY
-
-''~EC2''
-sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc@@
-aws ecr get-login @@color:blue;get docker login command@@
-sudo chkconfig nginx  on @@color:blue;start nginx after reboot@@
-
-''Find the volume name''
-sudo /sbin/ebsnvme-id /dev/nvme1n1
-''To resize root volume''
-sudo growpart /dev/xvda 1 @@color:blue;Expand the modified partition - note space separated device number@@
-sudo resize2fs /dev/xvda1 @@color:blue;update an ebs volume after increasing the size@@
-
-''Create a swapfile''
-{{{
-$ dd if=/dev/zero of=/swapfile bs=1024 count=1500000
-$ mkswap /swapfile
-$ chmod 0600 /swapfile
-$ swapon /swapfile
-$ sysctl vm.swappiness=1 # make sure swap is not used unless absolutely necessary    
-}}}
-
-''Update the ECS Container Agent''
-sudo yum update -y ecs-init
-then restart.
-
-''Restarting docker''
-sudo service docker restart
-sudo start ecs
-''Update ~ECS_CLUSTER''
-vi /etc/ecs/ecs.config and set ~ECS_CLUSTER=&lt;cluster name&gt;
-rm /var/lib/ecs/data/*
-
-''Restart sshd'' /etc/init.d/sshd restart
-
-''Formatting instance store on r3.large''
-Add the following to /etc/cloud/cloud.cfg
-{{{
-bootcmd:
-- [ cloud-init-per, always, fix_ephemeral_mounting, mkfs.ext4, /dev/xvdb ]
-}}}</pre>
-</div>
 <div title="Add action to ctrl-enter" creator="38911" modifier="38911" created="201509130106" changecount="1">
 <pre>''keymap.cson''
 {{{
@@ -587,140 +539,12 @@ atom.commands.add 'atom-workspace atom-text-editor[data-grammar=&quot;source q&q
     atom.workspace.getActiveTextEditor()?.moveDown 1
 }}}</pre>
 </div>
-<div title="Atom" creator="38911" modifier="38911" created="201509130105" modified="201509130105" changecount="2">
-<pre>[[Add action to ctrl-enter]]</pre>
-</div>
-<div title="Brew" creator="38911" modifier="38911" created="202403210725" modified="202403210731" changecount="2">
-<pre>Homebrew is a package manager for macOS.
-
-brew update - ensure brew has the latest information about software versions. Run before installing any new packages.
-brew list - list the formulae managed by brew
-brew install &lt;formula&gt; - install some software
-brew uninstall &lt;formula&gt; - delete some software. Brew will keep track of dependencies and not delete software if it is used by something else.
-brew upgrade &lt;formula&gt; - upgrade some software to the latest version</pre>
-</div>
-<div title="Docker" creator="38911" modifier="38911" created="201511080229" modified="201712070230" changecount="30">
-<pre>''Fix the time on the docker-machine VM''
-{{{
-docker-machine ssh
-sudo ntpclient -s -h time.nist.gov
-}}}
-
-docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
-
-docker attach &lt;container name&gt; //@@color:blue;attach to the process running within a container @@//
-docker images - //@@color:blue; list images @@//
-docker ps -a - //@@color:blue; list all containers, running and stopped @@//
-docker build -t image:tag . //@@color:blue; build a docker image @@//
-docker run -it -v /local/path:/image/path image:tag //@@color:blue; run an interactive (-it) image, link a local directory (-v) @@//
-docker run &quot;&quot;&quot;--&quot;&quot;&quot;name mongodb -p 27017:27017 -d mongo //@@color:blue; run a container named mongodb as a daemon, map 27017 to localhost:27017 @@//
-docker rm mongodb //@@color:blue;remove the container named mongodb@@//
-docker stop mongodb //@@color:blue;stop the container named mongodb@@//
-docker start mongodb //@@color:blue;start the container named mongodb@@//
-docker commit //@@color:blue; convert a container into an image @@//
-docker push //@@color:blue; push an image to docker hub @@//
-docker volume ls //@@color:blue;list volumes @@//
-docker exec -it node_web_1 /bin/bash //@@color:blue;log into a running container @@//
-docker stats &lt;containerID&gt; //@@color:blue;show mem &amp; cpu usage info@@//
-
-''Remove all containers'' - docker rm -v $(docker ps -a -q -f status=exited)
-''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
-''Remove dangling volumes'' - docker volume rm $(docker volume ls -f dangling=true -q)
-
-''Copy a file from a running container''
-docker run nginx:1.7 true
-ID=`docker ps -ql`
-docker cp $ID:/etc/nginx 
-
-''Out of space''
-rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
-''Remove and reinstall''
-service docker stop
-yum remove docker -y
-rm -rf /var/lib/docker
-yum install docker -y
-service docker start
-
-''To use docker without sudo on an ec2 machine''
-sudo usermod -a -G docker ec2-user
-
-''Update memory limit on a running container''
-&quot;&quot;&quot;docker update --memory 4096M &lt;containerid&gt;&quot;&quot;&quot;
-
-
-</pre>
-</div>
 <div title="Firefox" creator="38911" modifier="38911" created="201609250335" changecount="1">
 <pre>''To reduce session-store writes''
 In about:config set
 browser.sessionstore.max_tabs_undo =&gt; 0
 browser.sessionstore.max_windows_undo =&gt; 0 
 </pre>
-</div>
-<div title="GIT" creator="YourName" modifier="38911" created="201506011413" modified="202403210834" changecount="43">
-<pre>''Setup''
-&quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
-&quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
-
-''Useful commands''
-git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
-git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
-git status //@@color:blue; show what has changed@@//
-git add (files to be committed)
-git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
-git diff origin/master //@@color:blue;diff untracked files@@//
-git commit -m &quot;change msg&quot;
-git push
-git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//     
-git checkout 'master@{1979-02-26 18:30:00}' //@@color:blue;checkout a branch as of a given date and time @@//   
-
-
-git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
-git rm file //@@color:blue;delete a file@@//
-git checkout -- . //@@color:blue;discard all unstaged changes@@//
-
-''Syncing a branch''
-git checkout master //@@color:blue; move to master branch@@//
-git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
-git push
-git checkout gh-pages
-
-''Find commits that are not in master''
-{{{git log &lt;branch&gt; --not master --no-merges}}}
-
-''Merge a change from one branch to another''
-Run from the branch where you want the file to end up:
-git checkout otherbranch myfile.txt
-
-''Connecting to git from a server for the first time''
-ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git repository@@//
-
-''Revert a pull''
-git reset &quot;&quot;&quot;--&quot;&quot;&quot;hard master@{&quot;10 minutes ago&quot;}
-''Revert an unpushed commit''
-&quot;&quot;&quot;git reset HEAD^&quot;&quot;&quot;
-''Force update of the git repository to match your local''
-&quot;&quot;&quot;git push origin +master --force&quot;&quot;&quot;
-
-''Completely remove all traces of a file from a repository''
-&quot;&quot;&quot;git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD&quot;&quot;&quot;
-
-!Stashes
-git stash //@@color:blue;create a stash@@//
-git stash list //@@color:blue;list of current stashes@@//
-git stash apply //@@color:blue;apply changes from most recent stash@@//
-git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
-git stash pop //@@color:blue;pop a stash off the stack@@//
-
-''Delete tags''
-&quot;&quot;&quot;git tag -d &lt;tag_name&gt;&quot;&quot;&quot;
-&quot;&quot;&quot;git push origin :refs/tags/&lt;tag_name&gt;&quot;&quot;&quot;
-''Delete a remote branch''
-&quot;&quot;&quot;git push origin --delete &lt;branch_name&gt;&quot;&quot;&quot;
-''Remove old history''
-&quot;&quot;&quot;echo 4a46bc886318679d8b15e05aea40b83ff6c3bd47 &gt; .git/info/grafts&quot;&quot;&quot;
-&quot;&quot;&quot;git filter-branch&quot;&quot;&quot;
-&quot;&quot;&quot;git push --force&quot;&quot;&quot;</pre>
 </div>
 <div title="GettingStarted" creator="38911" modifier="38911" created="201510171005" changecount="1">
 <pre>[[TiddlyWiki Markup Summary | http://tiddlywiki.tiddlyspace.com/TiddlyWiki%20Markup]]
@@ -828,14 +652,13 @@ lsof | grep deleted
 ''Tar a directory''
 tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="38911BytesFree" created="201506011413" modified="202407090819" changecount="27">
-<pre>[[AWS]]
-[[Atom]]
-[[Brew]]
-[[Docker]]
+<div title="MainMenu" creator="YourName" modifier="38911BytesFree" created="201506011413" modified="202407220655" changecount="33">
+<pre>[[aws]]
+[[brew]]
+[[docker]]
 [[Firefox]]
 [[GettingStarted]]
-[[GIT]]
+[[git]]
 [[Julia]]
 [[JQuery]]
 [[KDB]]
@@ -845,7 +668,7 @@ tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 [[npm]]
 [[postgres]]
 [[python]]
-[[Raspberry Pi]]
+[[raspberry pi]]
 [[rust]]
 [[screen]]
 [[Shell]]
@@ -867,61 +690,6 @@ tar czf name_of_archive_file.tar.gz name_of_directory_to_tar</pre>
 |$(&quot;:button&quot;)	|Selects all &lt;button&gt; elements and &lt;input&gt; elements of type=&quot;button&quot;	|
 |$(&quot;tr:even&quot;)	|Selects all even &lt;tr&gt; elements	|
 |$(&quot;tr:odd&quot;)	|Selects all odd &lt;tr&gt; elements	|
-</pre>
-</div>
-<div title="Raspberry Pi" creator="38911" modifier="YourName" created="201507050106" modified="201810131239" changecount="21">
-<pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
-''Restart wifi'' - sudo service networking restart
-
-''set locale''
-Edit /etc/locale.gen and uncomment the line with en_US.~UTF-8
-sudo locale-gen en_US.~UTF-8
-sudo update-locale en_US.~UTF-8
-
-''Installation upgrade''
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-
-''Application install''
-sudo apt-get install git
-
-''pychromecast''
-sudo apt-get install python-dev
-sudo apt-get install python-setuptools
-sudo easy_install pip
-pip install -r requirements.txt
-chrome://net-internals/#capture //@@color:blue; - to see bytes sent / recieved from chromecast @@//
-
-''Start apache''
-sudo service apache2 restart
-/etc/apache2/sites-available/default //@@color:blue; - update default www directory @@//
-
-''minidlna''
-sudo service minidlna stop
-sudo service minidlna force-reload
-sudo service minidlna start
-
-''External Harddisk''
-blkid //@@color:blue; - see the device UUID @@//
-hdparm -I /dev/sda1 //@@color:blue; - see hard disk info @@//
-hdparm -B /dev/sda1 //@@color:blue; - power management feature. Must be &lt; 127 to enable spindown @@//
-hdparm -S60 /dev/sda1 //@@color:blue; - standby after 5mins @@//
-cat /proc/diskstats | grep sda1 //@@color:blue; - field 9 (third from the end) is zero if the disk is idle @@//
-
-''Wheezy-backports''
-Add a .list file here: /etc/apt/sources.list.d/ containing
-deb http://http.debian.net/debian wheezy-backports main
-
-''Add GPG keys'' - to fix apt-get update error with wheezy-backports
-{{{
-gpg --keyserver pgpkeys.mit.edu --recv-key  010908312D230C5F      
-gpg -a --export 010908312D230C5F | sudo apt-key add -
-}}}
-
-''Setting the timezone''
-sudo su root
-timedatectl set-timezone '...'
 </pre>
 </div>
 <div title="Shell" creator="38911" modifier="YourName" created="201603030840" modified="201809180107" changecount="17">
@@ -966,6 +734,179 @@ Then move it somewhere / rename ~SearchUI.exe
 ''Update the language settings on a single language version of Windows''
 &quot;&quot;&quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\Language&quot;&quot;&quot;
 Update Default and &quot;&quot;&quot;InstallLanguage&quot;&quot;&quot; to 0409 (for en-US) and reboot. No need to download or install anything. </pre>
+</div>
+<div title="aws" creator="38911" modifier="38911BytesFree" created="201602071220" modified="202407220652" changecount="34">
+<pre>sudo ntpdate time.nist.gov @@color:blue;to fix RequestTimeTooSkewed error@@
+
+aws ec2 describe-instances
+aws s3 cp USDJPY s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY &quot;&quot;&quot;--recursive&quot;&quot;&quot;
+aws s3 ls s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY/
+aws s3 sync s3:&quot;&quot;&quot;//&quot;&quot;&quot;xxx-bucket/USDJPY USDJPY
+
+''~EC2''
+sudo yum groupinstall &quot;Development tools&quot; @@color:blue;install gcc etc@@
+aws ecr get-login @@color:blue;get docker login command@@
+sudo chkconfig nginx  on @@color:blue;start nginx after reboot@@
+
+''Find the volume name''
+sudo /sbin/ebsnvme-id /dev/nvme1n1
+''To resize root volume''
+sudo growpart /dev/xvda 1 @@color:blue;Expand the modified partition - note space separated device number@@
+sudo resize2fs /dev/xvda1 @@color:blue;update an ebs volume after increasing the size@@
+
+''Create a swapfile''
+{{{
+$ dd if=/dev/zero of=/swapfile bs=1024 count=1500000
+$ mkswap /swapfile
+$ chmod 0600 /swapfile
+$ swapon /swapfile
+$ sysctl vm.swappiness=1 # make sure swap is not used unless absolutely necessary    
+}}}
+
+''Update the ECS Container Agent''
+sudo yum update -y ecs-init
+then restart.
+
+''Restarting docker''
+sudo service docker restart
+sudo start ecs
+''Update ~ECS_CLUSTER''
+vi /etc/ecs/ecs.config and set ~ECS_CLUSTER=&lt;cluster name&gt;
+rm /var/lib/ecs/data/*
+
+''Restart sshd'' /etc/init.d/sshd restart
+
+''Formatting instance store on r3.large''
+Add the following to /etc/cloud/cloud.cfg
+{{{
+bootcmd:
+- [ cloud-init-per, always, fix_ephemeral_mounting, mkfs.ext4, /dev/xvdb ]
+}}}</pre>
+</div>
+<div title="brew" creator="38911" modifier="38911BytesFree" created="202403210725" modified="202407220653" changecount="3">
+<pre>Homebrew is a package manager for macOS.
+
+brew update - ensure brew has the latest information about software versions. Run before installing any new packages.
+brew list - list the formulae managed by brew
+brew install &lt;formula&gt; - install some software
+brew uninstall &lt;formula&gt; - delete some software. Brew will keep track of dependencies and not delete software if it is used by something else.
+brew upgrade &lt;formula&gt; - upgrade some software to the latest version</pre>
+</div>
+<div title="docker" creator="38911" modifier="38911BytesFree" created="201511080229" modified="202407220654" changecount="31">
+<pre>''Fix the time on the docker-machine VM''
+{{{
+docker-machine ssh
+sudo ntpclient -s -h time.nist.gov
+}}}
+
+docker-machine ls //@@color:blue; see the ip address of the docker virtual box instance @@//
+
+docker attach &lt;container name&gt; //@@color:blue;attach to the process running within a container @@//
+docker images - //@@color:blue; list images @@//
+docker ps -a - //@@color:blue; list all containers, running and stopped @@//
+docker build -t image:tag . //@@color:blue; build a docker image @@//
+docker run -it -v /local/path:/image/path image:tag //@@color:blue; run an interactive (-it) image, link a local directory (-v) @@//
+docker run &quot;&quot;&quot;--&quot;&quot;&quot;name mongodb -p 27017:27017 -d mongo //@@color:blue; run a container named mongodb as a daemon, map 27017 to localhost:27017 @@//
+docker rm mongodb //@@color:blue;remove the container named mongodb@@//
+docker stop mongodb //@@color:blue;stop the container named mongodb@@//
+docker start mongodb //@@color:blue;start the container named mongodb@@//
+docker commit //@@color:blue; convert a container into an image @@//
+docker push //@@color:blue; push an image to docker hub @@//
+docker volume ls //@@color:blue;list volumes @@//
+docker exec -it node_web_1 /bin/bash //@@color:blue;log into a running container @@//
+docker stats &lt;containerID&gt; //@@color:blue;show mem &amp; cpu usage info@@//
+
+''Remove all containers'' - docker rm -v $(docker ps -a -q -f status=exited)
+''Remove dangling images'' - docker rmi $(docker images -f dangling=true -q)
+''Remove dangling volumes'' - docker volume rm $(docker volume ls -f dangling=true -q)
+
+''Copy a file from a running container''
+docker run nginx:1.7 true
+ID=`docker ps -ql`
+docker cp $ID:/etc/nginx 
+
+''Out of space''
+rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+''Remove and reinstall''
+service docker stop
+yum remove docker -y
+rm -rf /var/lib/docker
+yum install docker -y
+service docker start
+
+''To use docker without sudo on an ec2 machine''
+sudo usermod -a -G docker ec2-user
+
+''Update memory limit on a running container''
+&quot;&quot;&quot;docker update --memory 4096M &lt;containerid&gt;&quot;&quot;&quot;
+
+
+</pre>
+</div>
+<div title="git" creator="YourName" modifier="38911BytesFree" created="201506011413" modified="202407220654" changecount="44">
+<pre>''Setup''
+&quot;&quot;&quot;git config --add user.name abc&quot;&quot;&quot;
+&quot;&quot;&quot;git config --add user.email abc@abc.com&quot;&quot;&quot;
+
+''Useful commands''
+git clone https://github.com/libgit2/libgit2 //@@color:blue; create a directory libgit2 and copy the git repository into it @@//
+git clone git@github.com:project/repository //@@color:blue;clone a private repository (after adding ssh keys) @@//
+git status //@@color:blue; show what has changed@@//
+git add (files to be committed)
+git diff &quot;&quot;&quot;--&quot;&quot;&quot;cached
+git diff origin/master //@@color:blue;diff untracked files@@//
+git commit -m &quot;change msg&quot;
+git push
+git log -L100,200:file/name //@@color:blue;show all commits that updated that code @@//     
+git checkout 'master@{1979-02-26 18:30:00}' //@@color:blue;checkout a branch as of a given date and time @@//   
+
+
+git commit &quot;&quot;&quot;--&quot;&quot;&quot;amend //@@color:blue;updates the previous commit@@//
+git rm file //@@color:blue;delete a file@@//
+git checkout -- . //@@color:blue;discard all unstaged changes@@//
+
+''Syncing a branch''
+git checkout master //@@color:blue; move to master branch@@//
+git rebase gh-pages //@@color:blue; bring master up to date with gh-pages@@//
+git push
+git checkout gh-pages
+
+''Find commits that are not in master''
+{{{git log &lt;branch&gt; --not master --no-merges}}}
+
+''Merge a change from one branch to another''
+Run from the branch where you want the file to end up:
+git checkout otherbranch myfile.txt
+
+''Connecting to git from a server for the first time''
+ssh-keygen -t rsa //@@color:blue; then upload the public key to the private git repository@@//
+
+''Revert a pull''
+git reset &quot;&quot;&quot;--&quot;&quot;&quot;hard master@{&quot;10 minutes ago&quot;}
+''Revert an unpushed commit''
+&quot;&quot;&quot;git reset HEAD^&quot;&quot;&quot;
+''Force update of the git repository to match your local''
+&quot;&quot;&quot;git push origin +master --force&quot;&quot;&quot;
+
+''Completely remove all traces of a file from a repository''
+&quot;&quot;&quot;git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD&quot;&quot;&quot;
+
+!Stashes
+git stash //@@color:blue;create a stash@@//
+git stash list //@@color:blue;list of current stashes@@//
+git stash apply //@@color:blue;apply changes from most recent stash@@//
+git stash drop stash:{0} //@@color:blue;delete a stash by name@@//
+git stash pop //@@color:blue;pop a stash off the stack@@//
+
+''Delete tags''
+&quot;&quot;&quot;git tag -d &lt;tag_name&gt;&quot;&quot;&quot;
+&quot;&quot;&quot;git push origin :refs/tags/&lt;tag_name&gt;&quot;&quot;&quot;
+''Delete a remote branch''
+&quot;&quot;&quot;git push origin --delete &lt;branch_name&gt;&quot;&quot;&quot;
+''Remove old history''
+&quot;&quot;&quot;echo 4a46bc886318679d8b15e05aea40b83ff6c3bd47 &gt; .git/info/grafts&quot;&quot;&quot;
+&quot;&quot;&quot;git filter-branch&quot;&quot;&quot;
+&quot;&quot;&quot;git push --force&quot;&quot;&quot;</pre>
 </div>
 <div title="mac" creator="38911" modifier="38911" created="201509191134" modified="201711200251" changecount="15">
 <pre>''Creating a bootable usb'' (didn't work - create using windows instead)
@@ -1076,6 +1017,61 @@ source activate python2
 
 ''To install on mac''
 &quot;&quot;&quot;pip install --user boto3&quot;&quot;&quot;</pre>
+</div>
+<div title="raspberry pi" creator="38911" modifier="38911BytesFree" created="201507050106" modified="202407220655" changecount="22">
+<pre>''scp'' scp filename pi@192.168.1.9:/home/pi/Shared/.
+''Restart wifi'' - sudo service networking restart
+
+''set locale''
+Edit /etc/locale.gen and uncomment the line with en_US.~UTF-8
+sudo locale-gen en_US.~UTF-8
+sudo update-locale en_US.~UTF-8
+
+''Installation upgrade''
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+
+''Application install''
+sudo apt-get install git
+
+''pychromecast''
+sudo apt-get install python-dev
+sudo apt-get install python-setuptools
+sudo easy_install pip
+pip install -r requirements.txt
+chrome://net-internals/#capture //@@color:blue; - to see bytes sent / recieved from chromecast @@//
+
+''Start apache''
+sudo service apache2 restart
+/etc/apache2/sites-available/default //@@color:blue; - update default www directory @@//
+
+''minidlna''
+sudo service minidlna stop
+sudo service minidlna force-reload
+sudo service minidlna start
+
+''External Harddisk''
+blkid //@@color:blue; - see the device UUID @@//
+hdparm -I /dev/sda1 //@@color:blue; - see hard disk info @@//
+hdparm -B /dev/sda1 //@@color:blue; - power management feature. Must be &lt; 127 to enable spindown @@//
+hdparm -S60 /dev/sda1 //@@color:blue; - standby after 5mins @@//
+cat /proc/diskstats | grep sda1 //@@color:blue; - field 9 (third from the end) is zero if the disk is idle @@//
+
+''Wheezy-backports''
+Add a .list file here: /etc/apt/sources.list.d/ containing
+deb http://http.debian.net/debian wheezy-backports main
+
+''Add GPG keys'' - to fix apt-get update error with wheezy-backports
+{{{
+gpg --keyserver pgpkeys.mit.edu --recv-key  010908312D230C5F      
+gpg -a --export 010908312D230C5F | sudo apt-key add -
+}}}
+
+''Setting the timezone''
+sudo su root
+timedatectl set-timezone '...'
+</pre>
 </div>
 <div title="rust" creator="38911BytesFree" modifier="38911BytesFree" created="202407090820" modified="202407090820" changecount="3">
 <pre>&quot;&quot;&quot;cargo test --all-features -- --ignored&quot;&quot;&quot;
